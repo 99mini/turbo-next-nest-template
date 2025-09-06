@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Install deps
+        run: pnpm i --frozen-lockfile
+
+      - name: Turbo cache
+        uses: dtinth/setup-github-actions-caching-for-turbo@v1
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Build
+        run: pnpm build
+
+      - name: Test
+        run: pnpm test
+
+      - name: Coverage summary
+        if: always()
+        run: |
+          echo "== UI ==" && test -f packages/ui/coverage/lcov.info && wc -l packages/ui/coverage/lcov.info || true
+          echo "== WEB ==" && test -f apps/web/coverage/lcov.info && wc -l apps/web/coverage/lcov.info || true
+          echo "== SERVER ==" && test -d apps/server/coverage && ls -la apps/server/coverage || true
