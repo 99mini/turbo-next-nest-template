@@ -5,7 +5,6 @@ import importPlugin from "eslint-plugin-import";
 import unused from "eslint-plugin-unused-imports";
 
 export default [
-  js.configs.recommended,
   {
     name: "packages/base",
     languageOptions: {
