@@ -1,6 +1,9 @@
 {
   "tasks": {
     "lint": {},
+    "format": {},
+    "typecheck": { "dependsOn": ["^build"] },
+    "clean": {},
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**", "build/**"],
@@ -11,6 +14,11 @@
       "outputs": ["coverage/**", "junit.xml"],
       "cache": true
     },
+    "test:coverage": {
+      "dependsOn": ["test"],
+      "outputs": []
+    },
+    "start": { "dependsOn": ["build"], "cache": false },
     "dev": { "cache": false }
   }
 }
