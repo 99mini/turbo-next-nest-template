@@ -7,7 +7,7 @@ import unused from "eslint-plugin-unused-imports";
 export default [
   js.configs.recommended,
   {
-    name: "repo/base",
+    name: "packages/base",
     languageOptions: {
       ecmaVersion: 2023,
       sourceType: "module",
@@ -18,7 +18,7 @@ export default [
     },
   },
   {
-    name: "repo/react",
+    name: "packages/react",
     files: ["**/*.{jsx,tsx,ts,js}"],
     plugins: {
       react: reactPlugin,

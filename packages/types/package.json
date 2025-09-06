@@ -12,5 +12,7 @@
     "format": "prettier -w .",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@packages/config": "workspace:*"
+  }
 }
