@@ -8,6 +8,7 @@
   "types": "dist/index.d.ts",
   "sideEffects": false,
   "scripts": {
+    "dev": "tsup --watch",
     "build": "tsup",
     "clean": "rimraf dist",
     "lint": "eslint .",
