@@ -1,0 +1,16 @@
+{
+  "pipeline": {
+    "lint": {},
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**", "build/**"],
+      "cache": true
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "outputs": ["coverage/**", "junit.xml"],
+      "cache": true
+    },
+    "dev": { "cache": false }
+  }
+}
