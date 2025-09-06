@@ -7,6 +7,10 @@
   "author": "99mini",
   "license": "MIT",
   "packageManager": "pnpm@10.15.1",
+  "packages": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "dev": "turbo run dev --parallel",
     "build": "turbo run build",

@@ -14,7 +14,8 @@ export default async function Home() {
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         {nextJsMessage && <p>Nextjs API: {nextJsMessage}</p>}
         {serverMessage && <p>Server API: {serverMessage}</p>}
-        <Button label="Click me" />
+        <Button label="Click me(label)" />
+        <Button>{"Click me (children)"}</Button>
       </main>
     </div>
   );
