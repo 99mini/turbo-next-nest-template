@@ -2,9 +2,14 @@
   "name": "web-client",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
+    "lint": "eslint ./app/**/* -c ./eslint.config.js",
+    "format": "prettier -w .",
+    "clean": "rimraf .next node_modules",
+    "typecheck": "tsc --noEmit",
     "start": "next start"
   },
   "dependencies": {
@@ -14,7 +19,8 @@
     "@packages/ui": "workspace:*"
   },
   "devDependencies": {
-    "@packages/config": "workspace:*",
+    "@configs/tsconfig-react": "workspace:*",
+    "@configs/eslint-react": "workspace:*",
     "@packages/types": "workspace:*",
     "@types/node": "^20",
     "@types/react": "^19",
