@@ -1,4 +1,4 @@
 {
   "extends": "@configs/tsconfig-react",
-  "compilerOptions": { "outDir": "dist" }
+  "compilerOptions": { "outDir": "dist", "baseUrl": ".", "paths": { "@/*": ["./src/*"] } }
 }
