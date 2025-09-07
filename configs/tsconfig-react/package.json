@@ -1,0 +1,12 @@
+{
+  "name": "@configs/tsconfig-react",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./tsconfig.react.json"
+  },
+  "devDependencies": {
+    "@configs/tsconfig": "workspace:*"
+  }
+}

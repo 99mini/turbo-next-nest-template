@@ -1,6 +1,7 @@
-import baseEslintConfig from '@packages/config/eslint';
+import eslintReactConfig from '@configs/eslint-react';
 
+/** @type {import('eslint').Linter.Config} */
 export default {
-  ...baseEslintConfig,
-  // Override or add any specific rules for this package
+  ...eslintReactConfig,
+  files: ['./src/**/*.{js,jsx,ts,tsx}'],
 };

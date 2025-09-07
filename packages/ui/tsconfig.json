@@ -1,4 +1,4 @@
 {
-  "extends": "@packages/config/tsconfig-react-lib",
+  "extends": "@configs/tsconfig-react",
   "compilerOptions": { "outDir": "dist" }
 }

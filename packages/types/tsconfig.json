@@ -1,5 +1,5 @@
 {
-  "extends": "@packages/config/tsconfig",
+  "extends": "@configs/tsconfig",
   "compilerOptions": {
     "composite": true,
     "outDir": "dist"

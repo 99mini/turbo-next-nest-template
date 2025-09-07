@@ -1,5 +1,5 @@
 {
-  "extends": "@packages/config/tsconfig",
+  "extends": "@configs/tsconfig",
   "compilerOptions": {
     "module": "nodenext",
     "moduleResolution": "nodenext",
@@ -23,5 +23,5 @@
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false
   },
-  "include": ["src"]
+  "include": ["src", "test"]
 }

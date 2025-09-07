@@ -1,19 +1,19 @@
 {
-  "name": "@packages/config",
+  "name": "@configs/eslint-react",
   "version": "1.0.0",
   "private": true,
   "type": "module",
   "exports": {
-    "./eslint": "./eslint.config.mjs",
-    "./prettier": "./prettier.config.cjs",
-    "./tsconfig": "./tsconfig.base.json",
-    "./tsconfig-react-lib": "./tsconfig.react-lib.json"
+    ".": "./eslint.config.mjs"
   },
   "devDependencies": {
+    "@configs/eslint": "workspace:*",
     "@eslint/js": "^9.10.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-unused-imports": "^4.1.4"
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0"
   }
 }
