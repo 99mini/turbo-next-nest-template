@@ -30,16 +30,24 @@ jobs:
         uses: dtinth/setup-github-actions-caching-for-turbo@v1
 
       - name: Lint
+        id: lint
         run: pnpm lint
+        continue-on-error: true
 
       - name: Typecheck
+        id: typecheck
         run: pnpm typecheck
-
-      - name: Build
-        run: pnpm build
+        continue-on-error: true
 
       - name: Test
+        id: test
         run: pnpm test
+        continue-on-error: true
+
+      - name: Build
+        id: build
+        run: pnpm build
+        continue-on-error: true
 
       - name: Coverage summary
         if: always()
@@ -47,3 +55,26 @@ jobs:
           echo "== UI ==" && test -f packages/ui/coverage/lcov.info && wc -l packages/ui/coverage/lcov.info || true
           echo "== WEB ==" && test -f apps/web/coverage/lcov.info && wc -l apps/web/coverage/lcov.info || true
           echo "== SERVER ==" && test -d apps/server/coverage && ls -la apps/server/coverage || true
+
+      - name: CI summary & fail if any step failed
+        if: always()
+        run: |
+          FAILURES=""
+          if [ "${{ steps.lint.outcome }}" != "success" ]; then
+            FAILURES="${FAILURES}Lint "
+          fi
+          if [ "${{ steps.typecheck.outcome }}" != "success" ]; then
+            FAILURES="${FAILURES}Typecheck "
+          fi
+          if [ "${{ steps.build.outcome }}" != "success" ]; then
+            FAILURES="${FAILURES}Build "
+          fi
+          if [ "${{ steps.test.outcome }}" != "success" ]; then
+            FAILURES="${FAILURES}Test "
+          fi
+          if [ -n "$FAILURES" ]; then
+            echo "❌ CI failed at: $FAILURES"
+            exit 1
+          else
+            echo "✅ All CI steps succeeded."
+          fi
