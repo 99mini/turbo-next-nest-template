@@ -10,7 +10,6 @@
       "cache": true
     },
     "test": {
-      "dependsOn": ["^build"],
       "outputs": ["coverage/**", "junit.xml"],
       "cache": true
     },
