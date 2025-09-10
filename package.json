@@ -21,7 +21,9 @@
     "clean": "turbo run clean && rimraf node_modules .turbo",
     "typecheck": "turbo run typecheck",
     "test": "turbo run test",
-    "test:coverage": "turbo run test:coverage"
+    "test:coverage": "turbo run test:coverage",
+    "check:all": "pnpm run lint && pnpm run typecheck && pnpm run test",
+    "prepare": "husky"
   },
   "devDependencies": {
     "eslint": "^8.57.1",
@@ -32,6 +34,9 @@
     "typescript": "^5.9.2",
     "vitest": "^3.2.4",
     "@testing-library/react": "^16.3.0",
-    "@testing-library/jest-dom": "^6.8.0"
+    "@testing-library/jest-dom": "^6.8.0",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "husky": "^9.1.7"
   }
 }
